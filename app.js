@@ -1,4 +1,5 @@
 const express = require("express");
+var cors = require("cors");
 const port = process.env.PORT || 300;
 const app = express();
 
@@ -13,7 +14,8 @@ initDb((err) => {
 });
 
 app
-.use(express.json()) 
+.use(express.json())
+.use(cors()) 
 .use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   next();
