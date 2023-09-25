@@ -10,8 +10,8 @@ GET http://localhost:300/contacts/650f4645cc0d97bc6a464917 HTTP/1.1
 
 // PRODUCTION Deploy
 ###
-GET https://cse341-week2-95cg.onrender.com/contacts HTTP/1.1
+GET https://cse341-week2-95cg.onrender.com/contacts
 ###
-GET https://cse341-week2-95cg.onrender.com/contacts/650f45a3cc0d97bc6a464914 HTTP/1.1
+GET https://cse341-week2-95cg.onrender.com/contacts/650f45a3cc0d97bc6a464914
 ###
-GET https://cse341-week2-95cg.onrender.com/contacts/650f4562cc0d97bc6a464912 HTTP/1.1
+GET https://cse341-week2-95cg.onrender.com/contacts/650f4562cc0d97bc6a464912 
