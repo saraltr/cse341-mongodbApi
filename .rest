@@ -1,8 +1,6 @@
 // LOCALHOST 
 GET http://localhost:300/contacts HTTP/1.1
 ###
-GET http://localhost:300/contacts/650f4527cc0d97bc6a464911 HTTP/1.1
-###
 GET http://localhost:300/contacts/650f4591cc0d97bc6a464913 HTTP/1.1
 ###
 GET http://localhost:300/contacts/650f4645cc0d97bc6a464917 HTTP/1.1
@@ -15,3 +13,33 @@ GET https://cse341-week2-95cg.onrender.com/contacts
 GET https://cse341-week2-95cg.onrender.com/contacts/650f45a3cc0d97bc6a464914
 ###
 GET https://cse341-week2-95cg.onrender.com/contacts/650f4562cc0d97bc6a464912 
+
+### Create a new contact
+POST http://localhost:300/contacts HTTP/1.1
+Content-Type: application/json
+
+{
+  "firstName": "Laurie",
+  "lastName": "Doe",
+  "email": "laurie.doe@gmail.com",
+  "favoriteColor": "blue",
+  "birthday": "1990-01-15"
+}
+
+### 
+GET http://localhost:300/contacts/6517442e1809444d8a2837c8 HTTP/1.1
+
+###
+PUT http://localhost:300/contacts/650f4645cc0d97bc6a464917 HTTP/1.1
+Content-Type: application/json
+
+{
+  "firstName": "Mathis",
+  "lastName":"Boquet",
+  "email": "mathis.boquet@gmail.com",
+  "favoriteColor":"green",
+  "birthday":"21/12/04"
+}
+
+###
+GET http://localhost:300/contacts/650f4645cc0d97bc6a464917 HTTP/1.1

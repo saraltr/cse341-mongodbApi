@@ -31,4 +31,52 @@ const getSingle = async (req, res, next) => {
   }
 };
 
-module.exports = { getAll, getSingle };
+const createContact = async (req, res, next) => {
+  try {
+    const contact = {
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      email: req.body.email,
+      favoriteColor: req.body.favoriteColor,
+      birthday: req.body.birthday
+    };
+
+    const db = mongodb.getDb();
+    const result = await db.collection("contacts").insertOne(contact);
+
+    if (result.acknowledged) {
+      res.status(201).json({ message: "Contact created successfully" });
+    } else {
+      throw new Error("Contact creation failed");
+    }
+  } catch (error) {
+    console.error("Error creating contact:", error);
+  }
+};
+
+const updateContact = async (req, res, next) => {
+  try {
+    const userId = new ObjectId(req.params.id);
+    const contact = {
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      email: req.body.email,
+      favoriteColor: req.body.favoriteColor,
+      birthday: req.body.birthday
+    };
+
+    const db = mongodb.getDb();
+    const result = await mongodb.getDb().db("contacts").collection("contacts").replaceOne({ _id: userId }, contact);
+
+    if (result.modifiedCount > 0) {
+      res.status(204).send();
+    } else {
+      res.status(404).json({ error: "Contact not found" });
+    }
+  } catch (error) {
+    console.error("Error updating contact:", error);
+  }
+};
+
+
+module.exports = { getAll, getSingle, createContact, updateContact };
