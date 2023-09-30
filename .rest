@@ -23,11 +23,11 @@ Content-Type: application/json
   "lastName": "Doe",
   "email": "laurie.doe@gmail.com",
   "favoriteColor": "blue",
-  "birthday": "1990-01-15"
+  "birthday": "15/01/1990"
 }
 
-### 
-GET http://localhost:300/contacts/6517442e1809444d8a2837c8 HTTP/1.1
+### testing contact added
+GET http://localhost:300/contacts/6517c6714956dd73de6cc064 HTTP/1.1
 
 ###
 PUT http://localhost:300/contacts/650f4645cc0d97bc6a464917 HTTP/1.1
@@ -41,5 +41,10 @@ Content-Type: application/json
   "birthday":"21/12/04"
 }
 
-###
+### testing contact updated
 GET http://localhost:300/contacts/650f4645cc0d97bc6a464917 HTTP/1.1
+
+### 
+DELETE http://localhost:300/contacts/6517c84245db4e325cb77112 HTTP/1.1
+###
+GET http://localhost:300/contacts/6517c84245db4e325cb77112 HTTP/1.1

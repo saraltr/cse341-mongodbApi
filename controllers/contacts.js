@@ -31,8 +31,10 @@ const getSingle = async (req, res, next) => {
   }
 };
 
+// create a new contact in the database
 const createContact = async (req, res, next) => {
   try {
+    // extract contact information from the request body
     const contact = {
       firstName: req.body.firstName,
       lastName: req.body.lastName,
@@ -41,19 +43,19 @@ const createContact = async (req, res, next) => {
       birthday: req.body.birthday
     };
 
-    const db = mongodb.getDb();
-    const result = await db.collection("contacts").insertOne(contact);
+    const result = await mongodb.getDb().db("contacts").collection("contacts").insertOne(contact);
 
     if (result.acknowledged) {
-      res.status(201).json({ message: "Contact created successfully" });
+      res.status(201).json({ message: "Contact created successfully", result });
     } else {
-      throw new Error("Contact creation failed");
+      res.status(500).json("Contact creation failed", result.error);
     }
   } catch (error) {
     console.error("Error creating contact:", error);
   }
 };
 
+// update an existing contact
 const updateContact = async (req, res, next) => {
   try {
     const userId = new ObjectId(req.params.id);
@@ -65,18 +67,40 @@ const updateContact = async (req, res, next) => {
       birthday: req.body.birthday
     };
 
-    const db = mongodb.getDb();
     const result = await mongodb.getDb().db("contacts").collection("contacts").replaceOne({ _id: userId }, contact);
 
     if (result.modifiedCount > 0) {
       res.status(204).send();
     } else {
-      res.status(404).json({ error: "Contact not found" });
+      res.status(404).json({ error: result.error });
     }
   } catch (error) {
     console.error("Error updating contact:", error);
   }
 };
 
+// delete an existing contact
+const deleteContact = async (req, res, next) => {
+  try {
+    const userId = new ObjectId(req.params.id);
+    const contact = {
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      email: req.body.email,
+      favoriteColor: req.body.favoriteColor,
+      birthday: req.body.birthday
+    };
 
-module.exports = { getAll, getSingle, createContact, updateContact };
+    const result = await mongodb.getDb().db("contacts").collection("contacts").deleteOne({ _id: userId }, contact);
+
+    if (result.modifiedCount > 0) {
+      res.status(200).send();
+    } else {
+      res.status(404).json({ error: "Contact not found" });
+    }
+  } catch (error) {
+    console.error("Error removing contact:", error);
+  }
+};
+
+module.exports = { getAll, getSingle, createContact, updateContact, deleteContact };
