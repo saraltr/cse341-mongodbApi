@@ -2,17 +2,6 @@
 GET http://localhost:300/contacts HTTP/1.1
 ###
 GET http://localhost:300/contacts/650f4591cc0d97bc6a464913 HTTP/1.1
-###
-GET http://localhost:300/contacts/650f4645cc0d97bc6a464917 HTTP/1.1
-
-
-// PRODUCTION Deploy
-###
-GET https://cse341-week2-95cg.onrender.com/contacts
-###
-GET https://cse341-week2-95cg.onrender.com/contacts/650f45a3cc0d97bc6a464914
-###
-GET https://cse341-week2-95cg.onrender.com/contacts/650f4562cc0d97bc6a464912 
 
 ### Create a new contact
 POST http://localhost:300/contacts HTTP/1.1
@@ -26,11 +15,41 @@ Content-Type: application/json
   "birthday": "15/01/1990"
 }
 
-### testing contact added
-GET http://localhost:300/contacts/6517c6714956dd73de6cc064 HTTP/1.1
-
-###
+### update a contact
 PUT http://localhost:300/contacts/650f4645cc0d97bc6a464917 HTTP/1.1
+Content-Type: application/json
+
+{
+  "firstName": "Leo",
+  "lastName":"Boquet",
+  "email": "leo.boquet@gmail.com",
+  "favoriteColor":"yellow",
+  "birthday":"04/10/99"
+}
+
+### delete a contact
+DELETE http://localhost:300/contacts/6518b3c0c10e5b8842597d8f HTTP/1.1
+
+// PRODUCTION Deploy
+### Get all
+GET https://cse341-week2-95cg.onrender.com/contacts
+### Get one using its ID
+GET https://cse341-week2-95cg.onrender.com/contacts/650f45a3cc0d97bc6a464914
+
+### Create a new contact
+POST https://cse341-week2-95cg.onrender.com/contacts HTTP/1.1
+Content-Type: application/json
+
+{
+  "firstName": "Rosella",
+  "lastName": "Storz",
+  "email": "rosella.storz@gmail.com",
+  "favoriteColor": "pink",
+  "birthday": "20/03/1974"
+}
+
+### update a contact
+PUT https://cse341-week2-95cg.onrender.com/contacts/650f4645cc0d97bc6a464917 HTTP/1.1
 Content-Type: application/json
 
 {
@@ -38,13 +57,8 @@ Content-Type: application/json
   "lastName":"Boquet",
   "email": "mathis.boquet@gmail.com",
   "favoriteColor":"green",
-  "birthday":"21/12/04"
+  "birthday":"14/02/01"
 }
 
-### testing contact updated
-GET http://localhost:300/contacts/650f4645cc0d97bc6a464917 HTTP/1.1
-
 ### 
-DELETE http://localhost:300/contacts/6517c84245db4e325cb77112 HTTP/1.1
-###
-GET http://localhost:300/contacts/6517c84245db4e325cb77112 HTTP/1.1
+DELETE https://cse341-week2-95cg.onrender.com/contacts/6518a75507ef528040270355
