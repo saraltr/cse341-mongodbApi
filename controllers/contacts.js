@@ -10,7 +10,7 @@ const getAll = async (req, res) => {
     res.setHeader("Content-Type", "application/json");
     res.status(200).json(result);
   } catch (error) {
-    console.error(error);
+    res.status(500).json({message: error.message})
   }
 };
 
@@ -27,7 +27,7 @@ const getSingle = async (req, res) => {
       res.status(200).json(lists[0]);
     });
   } catch (error) {
-    console.error(error);
+    res.status(500).json({message: error.message})
   }
 };
 
@@ -51,7 +51,7 @@ const createContact = async (req, res) => {
       res.status(500).json({error: result.error});
     }
   } catch (error) {
-    console.error("Error creating contact:", error);
+    res.status(500).json({message: error.message})
   }
 };
 
@@ -75,7 +75,7 @@ const updateContact = async (req, res) => {
       res.status(404).json({ error: result.error });
     }
   } catch (error) {
-    console.error("Error updating contact:", error);
+    res.status(500).json({message: error.message})
   }
 };
 
@@ -89,7 +89,7 @@ const deleteContact = async (req, res) => {
       res.status(500).json({error: result.error});
     }
   } catch (error) {
-    console.error("Error removing contact:", error);
+    res.status(500).json({message: error.message})
   }
 };
 
