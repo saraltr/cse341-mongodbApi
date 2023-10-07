@@ -6,7 +6,7 @@ const doc = {
         description: "MongoDb contacts list API"
     },
     host: "localhost:300",
-    schemes: ["https"]
+    schemes: ["http"]
 };
 
 const output = "./routes/swagger.json"; // output Swagger JSON file
