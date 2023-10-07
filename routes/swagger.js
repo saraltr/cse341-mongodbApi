@@ -5,7 +5,7 @@ const doc = {
         title: "Contacts API",
         description: "MongoDb contacts list API"
     },
-    host: "cse341-contacts-mlih.onrender.com",
+    host: "localhost:300",
     schemes: ["https"]
 };
 
