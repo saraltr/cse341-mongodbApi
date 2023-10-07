@@ -5,7 +5,7 @@
     "description": "MongoDb contacts list API",
     "version": "1.0.0"
   },
-  "host": "cse341-week2-95cg.onrender.com",
+  "host": "cse341-contacts-mlih.onrender.com",
   "basePath": "/",
   "schemes": [
     "https"
