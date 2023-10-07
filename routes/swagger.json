@@ -5,10 +5,10 @@
     "description": "MongoDb contacts API",
     "version": "1.0.0"
   },
-  "host": "https://cse341-week2-95cg.onrender.com/",
+  "host": "cse341-week2-95cg.onrender.com",
   "basePath": "/",
   "schemes": [
-    "http"
+    "https"
   ],
   "paths": {
     "/api-docs": {

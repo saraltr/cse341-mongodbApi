@@ -5,8 +5,8 @@ const doc = {
         title: "Contacts API",
         description: "MongoDb contacts API"
     },
-    host: "https://cse341-week2-95cg.onrender.com",
-    schemes: ["http"]
+    host: "cse341-week2-95cg.onrender.com",
+    schemes: ["https"]
 };
 
 const output = "./routes/swagger.json"; // output Swagger JSON file
