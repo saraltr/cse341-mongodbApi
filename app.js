@@ -22,7 +22,7 @@ app
   "Origin, X-Requested-With, Content-Type, Accept, Z-Key");
   res.setHeader("Content-Type", 
   "application/json");
-  next();
+  next()
 })
 .use("/", require("./routes"))
 .listen(port, () => {
