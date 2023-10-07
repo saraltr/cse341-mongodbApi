@@ -1,11 +1,11 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "Contacts API",
-    "description": "MongoDb contacts list API",
+    "title": "My API",
+    "description": "Temple API",
     "version": "1.0.0"
   },
-  "host": "cse341-contacts-mlih.onrender.com",
+  "host": "cse341-instructor.herokuapp.com",
   "basePath": "/",
   "schemes": [
     "https"
@@ -14,11 +14,8 @@
     "/api-docs": {
       "get": {
         "description": "",
-        "responses": {
-          "default": {
-            "description": ""
-          }
-        }
+        "parameters": [],
+        "responses": {}
       }
     },
     "/contacts/": {
@@ -27,12 +24,10 @@
         "produces": [
           "application/json"
         ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "OK"
-          },
-          "500": {
-            "description": "Internal Server Error"
           }
         }
       },
@@ -91,9 +86,6 @@
         "responses": {
           "200": {
             "description": "OK"
-          },
-          "500": {
-            "description": "Internal Server Error"
           }
         }
       },
@@ -135,9 +127,6 @@
           "204": {
             "description": "No Content"
           },
-          "404": {
-            "description": "Not Found"
-          },
           "500": {
             "description": "Internal Server Error"
           }
@@ -154,8 +143,8 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK"
+          "204": {
+            "description": "No Content"
           },
           "500": {
             "description": "Internal Server Error"
