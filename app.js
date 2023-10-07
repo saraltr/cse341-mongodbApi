@@ -14,8 +14,8 @@ initDb((err) => {
 });
 
 app
+.use(cors())
 .use(express.json())
-.use(cors()) 
 .use("/", require("./routes"))
 .use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
