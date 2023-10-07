@@ -5,10 +5,10 @@
     "description": "MongoDb contacts list API",
     "version": "1.0.0"
   },
-  "host": "localhost:300",
+  "host": "cse341-contacts-mlih.onrender.com",
   "basePath": "/",
   "schemes": [
-    "http"
+    "https"
   ],
   "paths": {
     "/contacts/": {
